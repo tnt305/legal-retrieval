@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    image: python:3.10-slim  # Thay đổi phiên bản Python tại đây nếu cần
+    container_name: my_python_app
+    working_dir: /app
+    volumes:
+      - .:/app  # Gắn thư mục hiện tại vào thư mục /app trong container
+    command: ["python", "app.py"]  # Thay 'app.py' bằng file chính của bạn
+    ports:
+      - "5000:5000"
+    environment:
+      - ENV=development
+    depends_on:
+      - db
+    networks:
+      - my_network

@@ -1,0 +1,5 @@
+numpy==2.1.2
+pandas==2.2.3
+pyvi==0.1.1
+tqdm==4.66.5
+underthesea==6.8.4
