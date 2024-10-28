@@ -1,5 +1,15 @@
+bm25_pt==0.0.7
+huggingface_hub==0.25.2
+jax==0.4.35
 numpy==2.1.2
+orjson==3.10.10
 pandas==2.2.3
+PyStemmer==2.2.0.3
+pytrec_eval==0.5
 pyvi==0.1.1
+rank_bm25==0.2.2
+scipy==1.14.1
+setuptools==75.1.0
 tqdm==4.66.5
+transformers==4.45.2
 underthesea==6.8.4
