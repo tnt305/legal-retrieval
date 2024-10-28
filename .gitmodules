@@ -1,0 +1,3 @@
+[submodule "src/retrieval/lexical/bm25s"]
+	path = src/retrieval/lexical/bm25s
+	url = https://github.com/tnt305/legal-retrieval.git
