@@ -68,7 +68,7 @@ with open('/home/thiendc/projects/legal_retrieval/data/processed/corpus_20000.pk
 
 # Sử dụng multiprocessing để xử lý đồng thời corpus
 # Sử dụng multiprocessing để xử lý đồng thời queries
-with Pool(processes=os.cpu_count()) as pool:
+with Pool(processes= 40) as pool:
     results = list(tqdm(pool.imap(process_item, corpus.items()), total=len(corpus), desc="Processing queries"))
 corpus = dict(results)
 

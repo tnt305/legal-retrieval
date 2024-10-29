@@ -6,15 +6,15 @@ from typing import Union
 from pyvi import ViTokenizer
 from underthesea import ner
 
-from vocab.stopwords import STOP_WORDS
-from vocab.legal_dict import LEGAL_DICT
-from vocab.duties_dict import DUTIES
-from vocab.special_terms import SPECIAL_TERMS
-from vocab.numeral_currency import CURRENCY
-from utils import dupplicated_char_remover, preprocess_pyvi, postprocess_pyvi
-from legal_processing.legal_terms_tokenize import terms_of_law
-from legal_processing.duties_tokenize import duties_terms, ner_tokenize
-from base.base_preprocessing import BaseTextPreprocessor
+from src.preprocessor.vocab.stopwords import STOP_WORDS
+from src.preprocessor.vocab.legal_dict import LEGAL_DICT
+from src.preprocessor.vocab.duties_dict import DUTIES
+from src.preprocessor.vocab.special_terms import SPECIAL_TERMS
+from src.preprocessor.vocab.numeral_currency import CURRENCY
+from src.preprocessor.utils import dupplicated_char_remover, preprocess_pyvi, postprocess_pyvi
+from src.preprocessor.legal_processing.legal_terms_tokenize import terms_of_law
+from src.preprocessor.legal_processing.duties_tokenize import duties_terms, ner_tokenize
+from src.preprocessor.base.base_preprocessing import BaseTextPreprocessor
 
 class TextPreprocessing(BaseTextPreprocessor):
     def __init__(self, 

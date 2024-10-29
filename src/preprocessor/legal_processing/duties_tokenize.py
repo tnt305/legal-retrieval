@@ -1,6 +1,6 @@
 import re
 from underthesea import ner
-from vocab.duties_dict import DUTIES
+from src.preprocessor.vocab.duties_dict import DUTIES
 
 def duties_terms(text):
     for item in DUTIES:
