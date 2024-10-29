@@ -5,13 +5,16 @@ from tqdm import tqdm
 from typing import Union
 from pyvi import ViTokenizer
 from underthesea import ner
-from src.preprocessor.vocab.stopwords import STOP_WORDS
-from src.preprocessor.vocab.legal_dict import LEGAL_DICT
-from src.preprocessor.vocab.duties_dict import DUTIES
-from src.preprocessor.vocab.special_terms import SPECIAL_TERMS
-from src.preprocessor.legal_processing.legal_terms_tokenize import terms_of_law
-from src.preprocessor.legal_processing.duties_tokenize import duties_terms, ner_tokenize
-from src.preprocessor.base.base_preprocessing import BaseTextPreprocessor
+
+from vocab.stopwords import STOP_WORDS
+from vocab.legal_dict import LEGAL_DICT
+from vocab.duties_dict import DUTIES
+from vocab.special_terms import SPECIAL_TERMS
+from vocab.numeral_currency import CURRENCY
+from utils import dupplicated_char_remover, preprocess_pyvi, postprocess_pyvi
+from legal_processing.legal_terms_tokenize import terms_of_law
+from legal_processing.duties_tokenize import duties_terms, ner_tokenize
+from base.base_preprocessing import BaseTextPreprocessor
 
 class TextPreprocessing(BaseTextPreprocessor):
     def __init__(self, 
@@ -23,7 +26,6 @@ class TextPreprocessing(BaseTextPreprocessor):
         self.stop_words = STOP_WORDS if stop_words is None else stop_words 
         self.duties = DUTIES if duty_term is None else duty_term
         self.special_terms = SPECIAL_TERMS if special_term is None else special_term
-
     def preprocess(self,
                   docs: Union[pd.Series, str],
                   url_remover: bool = True,
@@ -85,23 +87,56 @@ class TextPreprocessing(BaseTextPreprocessor):
 
     @staticmethod
     def _punctuation_remover(paragraph: str) -> str:
-        """Remove punctuation marks from text."""
+        """Remove punctuation marks from text and handle currency conversions."""
+        # Loại bỏ dấu ngoặc khỏi số
         paragraph = re.sub(r"\((\d+)\)", r"\1", paragraph)
         paragraph = re.sub(r"\w+\)", " ", paragraph)
-        paragraph = re.sub(r"\b\d+[\.\)]", " ", paragraph)
-        
-        for punc in string.punctuation:
-            if punc in ["/", "."]:
+
+        # Tách các từ trong đoạn văn
+        words = paragraph.split()
+        updated_words = []
+
+        # Xử lý các từ liên quan đến số và tiền tệ
+        for item in words:
+            # Nếu từ kết thúc bằng ')' hoặc '.' và bắt đầu bằng số từ 1-9, loại bỏ từ đó
+            if item.endswith((')', '.')) and item[0] in '123456789':
                 continue
-            paragraph = paragraph.replace(punc, " ")
-            
+
+            # Thay thế chính xác từ khớp với từ điển CURRENCY
+            if item in CURRENCY:
+                updated_words.append(CURRENCY[item])
+                continue
+
+            # Tìm và thay thế các trường hợp chứa mẫu trong từ điển CURRENCY
+            for key, value in CURRENCY.items():
+                if key in item:
+                    item = item.replace(key, f" {value}")
+                    break
+
+            updated_words.append(item)
+
+        # Kết hợp lại đoạn văn đã được cập nhật
+        paragraph = ' '.join(updated_words)
+
+        # Loại bỏ các dấu câu (trừ '/' và '.')
+        for punc in string.punctuation:
+            if punc == ":":
+                paragraph = paragraph.replace(punc, ".")
+            elif punc == '-':
+                paragraph = paragraph.replace(punc, "")
+            elif punc not in ["/", "."]:
+                paragraph = paragraph.replace(punc, " ")
+
+        # Loại bỏ khoảng trắng thừa
         return re.sub(r"\s+", " ", paragraph).strip()
 
     @staticmethod 
     def _line_breaker_remover(paragraph: str) -> str:
         """Remove line breaks from text."""
+        para = re.sub(r"\\n+", ". ", paragraph)
         para = re.sub(r"\n+", ". ", paragraph)
         para = re.sub(r"\.\.\.", " ", para)
+        para = re.sub(r'\.{1,}', '.', para)
         return para.replace("  ", " ")
 
     @staticmethod
@@ -117,21 +152,24 @@ class TextPreprocessing(BaseTextPreprocessor):
 
     def _legal_text_tokenizer(self, paragraph: str) -> str:
         """Tokenize legal terms in text."""
-        for phrase, replacement in tqdm(self.legal_term.items(), desc='Xử lý các nội dung pháp lý'):
+        
+        for phrase, replacement in self.legal_term.items():
             paragraph = paragraph.replace(phrase, replacement)
         
         paragraph = terms_of_law(paragraph)
         paragraph = duties_terms(paragraph)
+        paragraph = dupplicated_char_remover(paragraph)
         return paragraph
 
     def _text_tokenizer(self, paragraph: str) -> str:
         """Tokenize regular text."""
         paragraph = ner_tokenize(paragraph)
-        paragraph = ViTokenizer.tokenize(paragraph)
-        
-        for phrase, replacement in tqdm(self.special_terms.items(), desc='Xử lý các từ đặc biệt'):
+        for phrase, replacement in self.special_terms.items():
             paragraph = paragraph.replace(phrase, replacement)
-            
+        
+        paragraph = preprocess_pyvi(paragraph)
+        paragraph = ViTokenizer.tokenize(paragraph)
+        paragraph = postprocess_pyvi(paragraph)
         return paragraph
 
     def _stopword_remover(self, paragraph: str) -> str:

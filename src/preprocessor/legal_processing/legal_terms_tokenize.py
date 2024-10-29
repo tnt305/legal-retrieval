@@ -9,13 +9,14 @@ def terms_of_law(text):
     # Định nghĩa các quy tắc cho 'Chương', 'Điều', 'Khoản', và 'điểm'
     terms = [
         (r'[Cc]ấp\s+([IVXLCDM]+(?:,\s*[IVXLCDM]+)*(?:\s+và\s+[IVXLCDM]+)?)', 'cấp'),
+        (r'[Hh]ạng\s+([IVXLCDM]+(?:,\s*[IVXLCDM]+)*(?:\s+và\s+[IVXLCDM]+)?)', 'hạng'),
         (r'[Cc]hương\s+([IVXLCDM]+(?:,\s*[IVXLCDM]+)*(?:\s+và\s+[IVXLCDM]+)?)', 'Chương'),
         (r'[Đđ]iều\s+\d+(?:,\s*\d+)*(?:\s+và\s+\d+)?', 'Điều'),
         (r'[Kk]hoản\s+\d+(?:,\s*\d+)*(?:\s+và\s+\d+)?', 'Khoản'),
         (r'[Đđ]iểm\s+([a-zđ](?:,\s*[a-zđ])*)(?:\s+và\s+([a-zđ]))?', 'điểm')
     ]
 
-    for pattern, term in tqdm(terms, desc='Đang xử lý các quy tắc pháp luật'):
+    for pattern, term in terms:
         # Tìm các cụm từ phù hợp với quy tắc
         matches = re.finditer(pattern, text)
 
@@ -27,7 +28,7 @@ def terms_of_law(text):
             start, end = match.span()
 
             # Xử lý các cụm 'Chương' với số La Mã sau từ 'Chương'
-            if term == 'Chương' or term == 'cấp':
+            if term.lower() == 'chương' or term == 'cấp' or term == 'hạng':
                 # Lấy các số La Mã từ cụm phù hợp
                 roman_numbers = re.findall(r'[IVXLCDM]+', match.group(1))
                 # Lọc chỉ giữ lại các số La Mã hợp lệ
