@@ -28,7 +28,7 @@ def terms_of_law(text):
             start, end = match.span()
 
             # Xử lý các cụm 'Chương' với số La Mã sau từ 'Chương'
-            if term.lower() == 'chương' or term == 'cấp' or term == 'hạng':
+            if term.lower() == 'chương' or term.lower() == 'cấp' or term.lower() == 'hạng':
                 # Lấy các số La Mã từ cụm phù hợp
                 roman_numbers = re.findall(r'[IVXLCDM]+', match.group(1))
                 # Lọc chỉ giữ lại các số La Mã hợp lệ

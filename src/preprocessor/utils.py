@@ -48,3 +48,14 @@ def postprocess_pyvi(text):
     # Khôi phục lại các cụm từ được bao bọc bởi {}
     text = re.sub(r'\{\s*(\S+(?:\s*/\s*\S+)*)\s*\}', lambda m: m.group(1).replace(' ', ''), text)
     return text
+
+def remove_punc(text):
+    words = text.split(" ")
+    rewrite_text = []
+    for word in words:
+        if word in string.punctuation:
+            continue
+        else:
+            rewrite_text.append(word)
+    
+    return " ".join(rewrite_text)

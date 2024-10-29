@@ -3,7 +3,7 @@ import os
 import pickle
 import pandas as pd
 from tqdm import tqdm
-from text_preprocessor import TextPreprocessing
+from preprocessor.preprocessor import TextPreprocessing
 from multiprocessing import Pool
 
 # # Khởi động tqdm cho pandas

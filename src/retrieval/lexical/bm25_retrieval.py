@@ -1,5 +1,5 @@
 import bm25s
-from src.preprocessor.text_preprocessor import TextPreprocessing
+from src.preprocessor.preprocessor import TextPreprocessing
 
 
 class BM25sRetrieval():
