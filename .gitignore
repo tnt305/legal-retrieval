@@ -4,3 +4,4 @@
 # Ignore all Excel files
 *.xlsx
 *.pkl
+embeddings/

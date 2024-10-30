@@ -67,6 +67,9 @@ bên
 bên_bị
 bên_có
 bên_cạnh
+bên_trên
+bên_dưới
+trên_bên
 bông
 bước
 bước_khỏi

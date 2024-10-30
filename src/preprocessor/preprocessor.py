@@ -11,10 +11,10 @@ from src.preprocessor.vocab.legal_dict import LEGAL_DICT
 from src.preprocessor.vocab.duties_dict import DUTIES
 from src.preprocessor.vocab.special_terms import SPECIAL_TERMS
 from src.preprocessor.vocab.numeral_currency import CURRENCY
-from src.preprocessor.utils import dupplicated_char_remover, preprocess_pyvi, postprocess_pyvi
+from src.preprocessor.utils.sent_level import dupplicated_char_remover, preprocess_pyvi, postprocess_pyvi
 from src.preprocessor.legal_processing.legal_terms_tokenize import terms_of_law
 from src.preprocessor.legal_processing.duties_tokenize import duties_terms, ner_tokenize
-from src.preprocessor.base.base_preprocessing import BaseTextPreprocessor
+from src.preprocessor.base.base_model import BaseTextPreprocessor
 
 class TextPreprocessing(BaseTextPreprocessor):
     def __init__(self, 
@@ -22,10 +22,13 @@ class TextPreprocessing(BaseTextPreprocessor):
                  stop_words: dict = None, 
                  duty_term: dict = None,
                  special_term: dict = None):
+        super.__init__()
         self.legal_term = LEGAL_DICT if legal_term is None else legal_term
         self.stop_words = STOP_WORDS if stop_words is None else stop_words 
         self.duties = DUTIES if duty_term is None else duty_term
         self.special_terms = SPECIAL_TERMS if special_term is None else special_term
+        
+        
     def preprocess(self,
                   docs: Union[pd.Series, str],
                   url_remover: bool = True,

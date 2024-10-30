@@ -14,4 +14,5 @@ ACRONYMS = {
     'PTBVCN': 'phương_tiện_bảo_vệ_cá_nhân',
     'KHKT' : 'khoa_học_kỹ_thuật',
     'edu': 'giáo_dục',
+    'EHSDT': 'quy_trình_đánh_giá_hồ_sơ_dự_thầu'
 }

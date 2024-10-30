@@ -59,3 +59,9 @@ def remove_punc(text):
             rewrite_text.append(word)
     
     return " ".join(rewrite_text)
+
+def remove_punc_v2(text):
+    for punc in string.punctuation:
+        text = text.replace(punc, ' ')
+        text = text.replace('  ', ' ')
+    return text

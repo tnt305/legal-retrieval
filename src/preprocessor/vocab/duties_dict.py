@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from src.preprocessor.utils.sent_level import remove_punc_v2
 DUTIES = {
     "Mặt trận Tổ quốc",
     "Ủy ban nhân dân",
@@ -69,6 +69,7 @@ DUTIES = {
     "Thủ tướng Chính phủ",
     "Chủ tịch nước",
     "Tổng bí thư",
+    "Bộ Công tác đại biểu",
     "Phó thủ tướng",
     "Hội đồng quản trị",
     "Chủ tịch hội đồng quản trị"
@@ -84,6 +85,7 @@ DUTIES = {
     "Ủy ban Tài chính – Ngân sách",
     "Ủy ban Quốc phòng và An ninh",
     "Ủy ban Xã hội",
+    "Ủy ban Y tế",
     "Ủy ban Đối ngoại",
     "Ủy ban Khoa học, Công nghệ và Môi trường",
     "Ủy ban Văn hóa, Giáo dục",
@@ -112,10 +114,21 @@ DUTIES = {
     "Đảng ủy Công an Trung ương",
     "Đảng bộ các tỉnh, thành phố",
     "Đảng ủy Khối Doanh nghiệp Trung ương",
-    "Đảng ủy Khối các cơ quan Trung ương"   
+    "Đảng ủy Khối các cơ quan Trung ương",
+    "Phó Chủ tịch nước",
+    "Phó Chủ tịch HĐND Thành phố",
+    "Phó Chủ tịch HĐND Tính",
+    "Phó Chủ tịch HĐND Huyện",
+    "Phó Chủ tịch HĐND Xã",
+    "Phó Chủ nhiệm Ủy ban",
+    "Phó Chủ nhiệm HĐND Thành phố",
+    "Phó Chủ nhiệm HĐND Tính",
+    "Phó Chủ nhiệm HĐND Huyện",
 }
 
 
-DUTIES = {item: item.replace("-", "").replace(" ", "_") for item in DUTIES}
-# DUTIES = {item.replace("-", "") for item in DUTIES}
-# DUTIES = {item: item.replace(" ", "_") for item in DUTIES}
+# DUTIES = {item: item.replace("-", "").replace(" ", "_") for item in DUTIES}
+DUTIES = {remove_punc_v2(item) for item in DUTIES}
+DUTIES = {item.replace("-", "") for item in DUTIES}
+DUTIES = {item.replace("  ", " ") for item in DUTIES}
+DUTIES = {item: item.replace(" ", "_") for item in DUTIES}
