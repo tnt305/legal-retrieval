@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from src.preprocessor.utils.sent_level import remove_punc_v2
 
 PROVINCES = {
+    "Việt Nam",
     "An Giang", "Bà Rịa - Vũng Tàu", "Bạc Liêu", "Bắc Kạn", "Bắc Giang", "Bắc Ninh",
     "Bến Tre", "Bình Dương", "Bình Định", "Bình Phước", "Bình Thuận", "Cà Mau", 
     "Cần Thơ", "Cao Bằng", "Đà Nẵng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", 
