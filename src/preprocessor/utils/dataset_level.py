@@ -1,7 +1,8 @@
 import pickle
 import json
 import os
-
+from tqdm import tqdm
+from datasets import Dataset
 def read_json(folder : str):
     with open(folder, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -19,3 +20,31 @@ def save_pickle(folder: str):
     with open(folder, 'rb') as f:
         data = pickle.load(f)
     return data
+
+def prepare_training_dataset(queries, corpus, relevant_docs):
+    anchors = []
+    positives = []
+    
+    # Sử dụng tqdm để theo dõi tiến trình của vòng lặp
+    for query_id, docs in tqdm(relevant_docs.items(), desc='Processing queries'):
+        for doc_id in docs:
+            try:
+                # Thử truy cập cả query và document
+                anchor = queries[str(query_id)]
+                positive = corpus[str(doc_id)]
+
+                # Nếu không gặp lỗi, append vào danh sách
+                anchors.append(anchor)
+                positives.append(positive)
+
+            except KeyError as e:
+                # In ra thông báo lỗi và tiếp tục
+                print(f"Lỗi KeyError: {e} - Bỏ qua query_id: {query_id}, doc_id: {doc_id}")
+                continue
+
+    df = {
+        "anchor": anchors,
+        "positive": positives
+    }
+
+    return Dataset.from_dict(df)
