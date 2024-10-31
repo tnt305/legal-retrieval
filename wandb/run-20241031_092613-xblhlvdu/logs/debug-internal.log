@@ -6,3 +6,6 @@
 {"time":"2024-10-31T09:26:18.326803963Z","level":"INFO","msg":"handler: started","stream_id":{"value":"xblhlvdu"}}
 {"time":"2024-10-31T09:26:18.326751757Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"xblhlvdu"}}
 {"time":"2024-10-31T09:26:18.780784631Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-31T09:50:08.731427278Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-10-31T09:52:09.889725122Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-10-31T09:52:09.894997529Z","level":"INFO","msg":"Pausing system monitor"}

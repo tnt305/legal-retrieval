@@ -1,8 +1,10 @@
-import pickle
 import json
 import os
+import pickle
+import yaml
 from tqdm import tqdm
 from datasets import Dataset
+
 def read_json(folder : str):
     with open(folder, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -24,6 +26,11 @@ def read_pickle(folder: str):
 def read_txt(folder : str):
     with open(folder, 'r') as f:
         data = [line.strip() for line in f.readlines()]
+    return data
+
+def read_yaml(folder : str):
+    with open(folder, 'r') as f:
+        data = yaml.safe_load(f)
     return data
 
 def prepare_training_dataset(queries, corpus, relevant_docs):
