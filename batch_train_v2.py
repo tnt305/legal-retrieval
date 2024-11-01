@@ -38,7 +38,7 @@ class ModelConfig:
     
     def __init__(self):
         self.data_dir = Path('/home/thiendc/projects/legal_retrieval/data/processed')
-        self.model_name = 'bkai-foundation-models/vietnamese-bi-encoder'
+        self.model_name = 'dangvantuan/vietnamese-embedding'
         self.vocab_path = './src/preprocessor/vocab/data/update_vocab_v1.json'
         self.output_dir = "output_dir"
         self.matryoshka_dimensions = [768, 512, 256]  # Large to small

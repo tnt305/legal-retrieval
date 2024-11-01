@@ -13,5 +13,7 @@ read commit_message
 # Commit changes with the custom message
 git commit -m "$commit_message"
 
+echo "And commit branch ?: "
+read branch
 # Push changes to the main branch
-git push -u origin main
+git push -u origin "$branch"
