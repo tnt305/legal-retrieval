@@ -1,0 +1,16 @@
+{"time":"2024-11-01T07:32:10.253511343Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-01T07:32:10.253543115Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241101_073210-hea5fgaz/logs/debug-core.log"}
+{"time":"2024-11-01T07:32:15.295644836Z","level":"INFO","msg":"created new stream","id":"hea5fgaz"}
+{"time":"2024-11-01T07:32:15.295779746Z","level":"INFO","msg":"stream: started","id":"hea5fgaz"}
+{"time":"2024-11-01T07:32:15.295903127Z","level":"INFO","msg":"sender: started","stream_id":"hea5fgaz"}
+{"time":"2024-11-01T07:32:15.295843867Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"hea5fgaz"}}
+{"time":"2024-11-01T07:32:15.295936067Z","level":"INFO","msg":"handler: started","stream_id":{"value":"hea5fgaz"}}
+{"time":"2024-11-01T07:32:15.724700444Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-01T07:32:23.853062648Z","level":"INFO","msg":"stream: closing","id":"hea5fgaz"}
+{"time":"2024-11-01T07:32:23.853155135Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-01T07:32:23.853264412Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-01T07:32:27.565735222Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-01T07:32:27.901303682Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"hea5fgaz"}}
+{"time":"2024-11-01T07:32:27.901391076Z","level":"INFO","msg":"sender: closed","stream_id":"hea5fgaz"}
+{"time":"2024-11-01T07:32:27.901375159Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"hea5fgaz"}}
+{"time":"2024-11-01T07:32:27.901570693Z","level":"INFO","msg":"stream: closed","id":"hea5fgaz"}

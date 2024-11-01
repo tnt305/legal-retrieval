@@ -4,9 +4,8 @@ import gc
 from datasets import Dataset
 from sentence_transformers.losses import MatryoshkaLoss, MultipleNegativesRankingLoss
 
-from setup.settings import setup_training_args
-from setup.memory import MemoryEfficientTrainer
-from setup.settings import setup_embedding_model
+from setup.settings import setup_training_args, setup_embedding_model
+from setup.memory_efficiency import MemoryEfficientTrainer
 from src.preprocessor.utils.dataset_level import read_pickle, prepare_training_dataset, read_json
 from src.preprocessor.utils.evaluate import evaluate
 
@@ -35,10 +34,10 @@ if __name__ == '__main__':
     new_tokens = read_json('./src/preprocessor/vocab/data/update_vocab_v1.json')
     
     train_dataset = prepare_training_dataset(queries, corpus, relevant_docs)
-    train_dataset = Dataset.from_dict(train_dataset[:5000])
+    train_dataset = Dataset.from_dict(train_dataset[:10000])
     matryoshka_dimensions= [768, 512, 256]
     evaluator = evaluate(corpus, queries, relevant_docs, matryoshka_dimensions = matryoshka_dimensions)
-    model, tokenizer = setup_embedding_model('intfloat/e5-base-v2', new_tokens = new_tokens)
+    model, tokenizer = setup_embedding_model('hiieu/halong_embedding', new_tokens = new_tokens)
     
     train_loss = MatryoshkaLoss(model = model, 
                                 loss = MultipleNegativesRankingLoss(model), 

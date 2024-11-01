@@ -3,7 +3,6 @@ import gc
 import psutil
 import torch
 import torch.cuda.amp as amp
-from torch import checkpoint
 from torch.utils.checkpoint import checkpoint_sequential
 from sentence_transformers.training_args import BatchSamplers
 from sentence_transformers import SentenceTransformerTrainer, SentenceTransformerTrainingArguments

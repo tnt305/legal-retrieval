@@ -1,0 +1,77 @@
+2024-11-01 07:31:28,577 - INFO - Using device: cuda
+2024-11-01 07:31:28,577 - INFO - Loading datasets...
+2024-11-01 07:31:30,465 - INFO - Loaded 261772 corpus documents, 119456 queries
+2024-11-01 07:31:30,465 - INFO - Preparing training dataset...
+2024-11-01 07:31:32,993 - INFO - Setting up model and tokenizer...
+2024-11-01 07:31:39,584 - INFO - Use pytorch device_name: cuda
+2024-11-01 07:31:49,303 - INFO - Creating evaluators...
+2024-11-01 07:31:49,911 - INFO - Setting up trainer...
+2024-11-01 07:31:58,924 - WARNING - Currently using DataParallel (DP) for multi-gpu training, while DistributedDataParallel (DDP) is recommended for faster training. See https://sbert.net/docs/sentence_transformer/training/distributed.html for more information.
+2024-11-01 07:32:08,061 - WARNING - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-11-01 07:32:08,974 - INFO - Starting training...
+2024-11-01 07:32:23,839 - ERROR - Training failed: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 10.75 GiB total capacity; 9.78 GiB already allocated; 7.56 MiB free; 10.01 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+2024-11-01 07:38:49,202 - INFO - Using device: cuda
+2024-11-01 07:38:49,202 - INFO - Loading datasets...
+2024-11-01 07:38:51,084 - INFO - Loaded 261772 corpus documents, 119456 queries
+2024-11-01 07:38:51,084 - INFO - Preparing training dataset...
+2024-11-01 07:38:53,864 - INFO - Setting up model and tokenizer...
+2024-11-01 07:39:14,489 - INFO - Use pytorch device_name: cuda
+2024-11-01 07:39:24,205 - INFO - Creating evaluators...
+2024-11-01 07:39:24,879 - INFO - Setting up trainer...
+2024-11-01 07:39:33,916 - WARNING - Currently using DataParallel (DP) for multi-gpu training, while DistributedDataParallel (DDP) is recommended for faster training. See https://sbert.net/docs/sentence_transformer/training/distributed.html for more information.
+2024-11-01 07:39:43,169 - WARNING - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-11-01 07:39:45,880 - INFO - Starting training...
+2024-11-01 07:39:58,499 - ERROR - Training failed: CUDA error: CUBLAS_STATUS_EXECUTION_FAILED when calling `cublasSgemm( handle, opa, opb, m, n, k, &alpha, a, lda, b, ldb, &beta, c, ldc)`
+2024-11-01 07:42:38,509 - INFO - Using device: cuda
+2024-11-01 07:42:38,511 - INFO - Loading datasets...
+2024-11-01 07:42:40,544 - INFO - Loaded 261772 corpus documents, 119456 queries
+2024-11-01 07:42:40,544 - INFO - Preparing training dataset...
+2024-11-01 07:42:43,670 - INFO - Setting up model and tokenizer...
+2024-11-01 07:42:55,370 - INFO - Use pytorch device_name: cuda
+2024-11-01 07:43:14,899 - INFO - Creating evaluators...
+2024-11-01 07:43:15,515 - INFO - Setting up trainer...
+2024-11-01 07:43:24,518 - WARNING - Currently using DataParallel (DP) for multi-gpu training, while DistributedDataParallel (DDP) is recommended for faster training. See https://sbert.net/docs/sentence_transformer/training/distributed.html for more information.
+2024-11-01 07:43:33,656 - WARNING - Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-11-01 07:43:36,782 - INFO - Starting training...
+2024-11-01 07:43:49,488 - ERROR - Training failed: Caught RuntimeError in replica 0 on device 0.
+Original Traceback (most recent call last):
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/parallel/parallel_apply.py", line 64, in _worker
+    output = module(*input, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/sentence_transformers/SentenceTransformer.py", line 683, in forward
+    return super().forward(input)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/sentence_transformers/models/Transformer.py", line 350, in forward
+    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/transformers/models/roberta/modeling_roberta.py", line 976, in forward
+    encoder_outputs = self.encoder(
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/transformers/models/roberta/modeling_roberta.py", line 620, in forward
+    layer_outputs = self._gradient_checkpointing_func(
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
+    outputs = run_function(*args)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/transformers/models/roberta/modeling_roberta.py", line 520, in forward
+    self_attention_outputs = self.attention(
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/transformers/models/roberta/modeling_roberta.py", line 447, in forward
+    self_outputs = self.self(
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/thiendc/projects/.thienenv/lib/python3.10/site-packages/transformers/models/roberta/modeling_roberta.py", line 233, in forward
+    attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
+RuntimeError: CUDA error: CUBLAS_STATUS_EXECUTION_FAILED when calling `cublasSgemmStridedBatched( handle, opa, opb, m, n, k, &alpha, a, lda, stridea, b, ldb, strideb, &beta, c, ldc, stridec, num_batches)`
+

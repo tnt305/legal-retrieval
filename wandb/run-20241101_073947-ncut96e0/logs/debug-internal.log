@@ -1,0 +1,16 @@
+{"time":"2024-11-01T07:39:47.012873861Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-01T07:39:47.012913694Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241101_073947-ncut96e0/logs/debug-core.log"}
+{"time":"2024-11-01T07:39:52.055991923Z","level":"INFO","msg":"created new stream","id":"ncut96e0"}
+{"time":"2024-11-01T07:39:52.05604228Z","level":"INFO","msg":"stream: started","id":"ncut96e0"}
+{"time":"2024-11-01T07:39:52.056130678Z","level":"INFO","msg":"sender: started","stream_id":"ncut96e0"}
+{"time":"2024-11-01T07:39:52.056116671Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ncut96e0"}}
+{"time":"2024-11-01T07:39:52.056176188Z","level":"INFO","msg":"handler: started","stream_id":{"value":"ncut96e0"}}
+{"time":"2024-11-01T07:39:52.49479716Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-01T07:39:58.505207182Z","level":"INFO","msg":"stream: closing","id":"ncut96e0"}
+{"time":"2024-11-01T07:39:58.505260622Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-01T07:39:58.505333176Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-01T07:39:59.514217975Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-01T07:39:59.863146996Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"ncut96e0"}}
+{"time":"2024-11-01T07:39:59.86325848Z","level":"INFO","msg":"sender: closed","stream_id":"ncut96e0"}
+{"time":"2024-11-01T07:39:59.86324088Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ncut96e0"}}
+{"time":"2024-11-01T07:39:59.863407014Z","level":"INFO","msg":"stream: closed","id":"ncut96e0"}
