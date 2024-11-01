@@ -51,7 +51,7 @@ def prepare_training_dataset(queries, corpus, relevant_docs):
 
             except KeyError as e:
                 # In ra thông báo lỗi và tiếp tục
-                print(f"Lỗi KeyError: {e} - Bỏ qua query_id: {query_id}, doc_id: {doc_id}")
+                # print(f"Lỗi KeyError: {e} - Bỏ qua query_id: {query_id}, doc_id: {doc_id}")
                 continue
 
     df = {
