@@ -1,0 +1,16 @@
+{"time":"2024-11-02T21:14:10.832599643Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-02T21:14:10.832632848Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241102_211410-vov4960c/logs/debug-core.log"}
+{"time":"2024-11-02T21:14:15.871065906Z","level":"INFO","msg":"created new stream","id":"vov4960c"}
+{"time":"2024-11-02T21:14:15.871121605Z","level":"INFO","msg":"stream: started","id":"vov4960c"}
+{"time":"2024-11-02T21:14:15.871263445Z","level":"INFO","msg":"sender: started","stream_id":"vov4960c"}
+{"time":"2024-11-02T21:14:15.871324401Z","level":"INFO","msg":"handler: started","stream_id":{"value":"vov4960c"}}
+{"time":"2024-11-02T21:14:15.871203625Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"vov4960c"}}
+{"time":"2024-11-02T21:14:16.304992262Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-02T21:24:11.734126726Z","level":"INFO","msg":"stream: closing","id":"vov4960c"}
+{"time":"2024-11-02T21:24:11.734216605Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-02T21:24:11.734333822Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-02T21:24:13.273882726Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-02T21:24:13.622434597Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"vov4960c"}}
+{"time":"2024-11-02T21:24:13.622511596Z","level":"INFO","msg":"sender: closed","stream_id":"vov4960c"}
+{"time":"2024-11-02T21:24:13.622505783Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"vov4960c"}}
+{"time":"2024-11-02T21:24:13.622676292Z","level":"INFO","msg":"stream: closed","id":"vov4960c"}

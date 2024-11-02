@@ -8,30 +8,17 @@ from sentence_transformers.training_args import BatchSamplers
 from sentence_transformers import SentenceTransformerTrainer, SentenceTransformerTrainingArguments
 
 class MemoryEfficientTrainer(SentenceTransformerTrainer):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.scaler = amp.GradScaler()
+    def training_step(self, *args, **kwargs):
+        loss = super().training_step(*args, **kwargs)
         
-    def training_step(self, model, inputs):
-        # Clear cache before each step
-        torch.cuda.empty_cache()
+        # Dọn memory Python và CUDA cache sau mỗi step
         gc.collect()
+        torch.cuda.empty_cache()
         
-        # Move inputs to GPU only when needed
-        inputs = {k: v.to(model.device) if hasattr(v, 'to') else v 
-                 for k, v in inputs.items()}
+        return loss
         
-        with amp.autocast():
-            outputs = model(**inputs)
-            loss = outputs.loss / self.args.gradient_accumulation_steps
-            
-        self.scaler.scale(loss).backward()
-        
-        if self.steps % self.args.gradient_accumulation_steps == 0:
-            self.scaler.unscale_(self.optimizer)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), self.args.max_grad_norm)
-            self.scaler.step(self.optimizer)
-            self.scaler.update()
-            self.optimizer.zero_grad()
-            
-        return loss.detach()
+    def on_epoch_end(self):
+        # Dọn memory sau mỗi epoch
+        gc.collect()
+        torch.cuda.empty_cache()
+        super().on_epoch_end()

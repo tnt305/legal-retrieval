@@ -1,0 +1,15 @@
+{"time":"2024-11-02T20:56:54.559238773Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-02T20:56:54.559267831Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241102_205654-daa67ekp/logs/debug-core.log"}
+{"time":"2024-11-02T20:56:59.601963369Z","level":"INFO","msg":"created new stream","id":"daa67ekp"}
+{"time":"2024-11-02T20:56:59.602050336Z","level":"INFO","msg":"stream: started","id":"daa67ekp"}
+{"time":"2024-11-02T20:56:59.602201377Z","level":"INFO","msg":"sender: started","stream_id":"daa67ekp"}
+{"time":"2024-11-02T20:56:59.602118536Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"daa67ekp"}}
+{"time":"2024-11-02T20:56:59.60216759Z","level":"INFO","msg":"handler: started","stream_id":{"value":"daa67ekp"}}
+{"time":"2024-11-02T20:57:00.049488752Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-02T20:57:18.801523491Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-11-02T20:57:45.569706527Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-11-02T20:58:21.501233461Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-11-02T20:58:21.53774811Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-11-02T20:58:21.539027308Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-11-02T20:58:21.606070717Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-11-02T20:59:20.148362994Z","level":"INFO","msg":"Pausing system monitor"}

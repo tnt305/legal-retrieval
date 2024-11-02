@@ -7,8 +7,10 @@ import logging
 import os
 from pathlib import Path
 from typing import List, Dict, Tuple
+from contextlib import contextmanager
 
 import torch
+import gc
 from datasets import Dataset
 from sentence_transformers import SentenceTransformerTrainer, SentenceTransformerTrainingArguments
 from sentence_transformers.evaluation import (
@@ -19,10 +21,14 @@ from sentence_transformers.losses import MatryoshkaLoss, MultipleNegativesRankin
 from sentence_transformers.training_args import BatchSamplers
 from sentence_transformers.util import cos_sim
 
-from setup.settings import setup_training_args, setup_embedding_model
+from setup.settings import setup_embedding_model
+from setup.memory_efficiency import MemoryEfficientTrainer
 from src.preprocessor.utils.dataset_level import read_pickle, prepare_training_dataset, read_json
 
 from huggingface_hub import login
+
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Configure logging
 logging.basicConfig(
@@ -40,32 +46,33 @@ class ModelConfig:
     
     def __init__(self):
         self.data_dir = Path('/home/thiendc/projects/legal_retrieval/data/processed')
-        self.model_name = 'VoVanPhuc/sup-SimCSE-VietNamese-phobert-base'
-        self.vocab_path = './src/preprocessor/vocab/data/update_vocab_v1.json'
-        self.output_dir = "legal_finetuning"
+        self.model_name = './legal_finetuning/checkpoint-114'
+        self.vocab_path = './src/preprocessor/vocab/data/update_vocab_v2.json'
+        self.output_dir = "legal_finetuning_v2"
         self.matryoshka_dimensions = [768, 512, 256]  # Large to small
-        self.num_train_samples = 8000
+        self.num_train_samples = 10000
         
         # Training arguments
         self.training_args = {
-            'num_train_epochs': 5,
-            'per_device_train_batch_size': 8,
-            'gradient_accumulation_steps': 4,
+            'num_train_epochs': 10,
+            'per_device_train_batch_size': 16,
+            'gradient_accumulation_steps': 8,
             'per_device_eval_batch_size': 8,
             'gradient_checkpointing': True,
             'warmup_ratio': 0.15,
-            'learning_rate': 5e-6,
+            'learning_rate': 2e-5,
             'lr_scheduler_type': "cosine",
             'optim': "adamw_torch_fused",
             'fp16': True,
             'batch_sampler': BatchSamplers.NO_DUPLICATES,
             'eval_strategy': "steps",
-            'save_steps': 50,
-            'logging_steps': 10,
+            'save_steps': 45,
+            'logging_steps': 9,
             'save_total_limit': 5,
             'load_best_model_at_end': True,
             'max_grad_norm': 0.5,
             'metric_for_best_model': "eval_dim_768_cosine_ndcg@10",
+            'dataloader_num_workers': 40
         }
 
 def load_datasets(config: ModelConfig) -> Tuple[Dict, Dict, Dict]:
@@ -111,6 +118,12 @@ def create_evaluators(
         
     return SequentialEvaluator(evaluators)
 
+@contextmanager
+def track_memory():
+    torch.cuda.reset_peak_memory_stats()
+    yield
+    print(f"Peak memory: {torch.cuda.max_memory_allocated() / 1e9:.2f} GB")
+
 def setup_trainer(
     config: ModelConfig,
     model,
@@ -134,13 +147,14 @@ def setup_trainer(
         **config.training_args
     )
     
-    return SentenceTransformerTrainer(
+    trainer = MemoryEfficientTrainer(
         model=model,
         args=args,
         train_dataset=train_dataset,
         loss=train_loss,
         evaluator=evaluator,
     )
+    return trainer
 
 def main():
     """Main training function."""
@@ -158,12 +172,12 @@ def main():
         # Prepare training dataset
         logger.info("Preparing training dataset...")
         train_dataset = prepare_training_dataset(queries, corpus, relevant_docs)
-        subset = Dataset.from_dict(train_dataset[:config.num_train_samples])
+        subset = Dataset.from_dict(train_dataset[-config.num_train_samples:])
         
         # Load model and tokenizer
         logger.info("Setting up model and tokenizer...")
         new_tokens = read_json(config.vocab_path)
-        model, _ = setup_embedding_model(config.model_name, new_tokens= None)
+        model, _ = setup_embedding_model(config.model_name, new_tokens= new_tokens)
         model.to(device)
         
         # Create evaluators
@@ -176,13 +190,17 @@ def main():
         
         # Setup and start training
         trainer = setup_trainer(config, model, subset, evaluator)
+        torch.cuda.empty_cache()
+        
+        with track_memory():
+            trainer.train()
         
         logger.info("Starting training...")
         trainer.train()
         logger.info("Training completed successfully")
         
         login(token="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", add_to_git_credential=True)
-        trainer.model.push_to_hub("miai-sample-embedding")
+        trainer.model.push_to_hub("test_embedding_model_v2")
         
     except Exception as e:
         logger.error(f"Training failed: {str(e)}")

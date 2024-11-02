@@ -1,6 +1,7 @@
 # Ignore all CSV files
 *.csv
-
+legal_finetuning/
+legal_finetuning_v2/
 # Ignore all Excel files
 *.xlsx
 *.pkl

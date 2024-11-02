@@ -1,0 +1,16 @@
+{"time":"2024-11-02T20:46:58.534642854Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-02T20:46:58.534695257Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241102_204658-4avda6dg/logs/debug-core.log"}
+{"time":"2024-11-02T20:47:03.577294485Z","level":"INFO","msg":"created new stream","id":"4avda6dg"}
+{"time":"2024-11-02T20:47:03.577333909Z","level":"INFO","msg":"stream: started","id":"4avda6dg"}
+{"time":"2024-11-02T20:47:03.577421538Z","level":"INFO","msg":"sender: started","stream_id":"4avda6dg"}
+{"time":"2024-11-02T20:47:03.577409728Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"4avda6dg"}}
+{"time":"2024-11-02T20:47:03.577469784Z","level":"INFO","msg":"handler: started","stream_id":{"value":"4avda6dg"}}
+{"time":"2024-11-02T20:47:04.020567146Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-02T20:47:11.603151234Z","level":"INFO","msg":"stream: closing","id":"4avda6dg"}
+{"time":"2024-11-02T20:47:11.603203264Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-02T20:47:11.603297258Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-02T20:47:14.712094555Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-02T20:47:15.104440216Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"4avda6dg"}}
+{"time":"2024-11-02T20:47:15.104526113Z","level":"INFO","msg":"sender: closed","stream_id":"4avda6dg"}
+{"time":"2024-11-02T20:47:15.104506543Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"4avda6dg"}}
+{"time":"2024-11-02T20:47:15.104679657Z","level":"INFO","msg":"stream: closed","id":"4avda6dg"}
