@@ -22,6 +22,8 @@ from sentence_transformers.util import cos_sim
 from setup.settings import setup_training_args, setup_embedding_model
 from src.preprocessor.utils.dataset_level import read_pickle, prepare_training_dataset, read_json
 
+from huggingface_hub import login
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -38,31 +40,31 @@ class ModelConfig:
     
     def __init__(self):
         self.data_dir = Path('/home/thiendc/projects/legal_retrieval/data/processed')
-        self.model_name = 'dangvantuan/vietnamese-embedding'
+        self.model_name = 'VoVanPhuc/sup-SimCSE-VietNamese-phobert-base'
         self.vocab_path = './src/preprocessor/vocab/data/update_vocab_v1.json'
-        self.output_dir = "output_dir"
+        self.output_dir = "legal_finetuning"
         self.matryoshka_dimensions = [768, 512, 256]  # Large to small
-        self.num_train_samples = 5000
+        self.num_train_samples = 8000
         
         # Training arguments
         self.training_args = {
-            'num_train_epochs': 10,
+            'num_train_epochs': 5,
             'per_device_train_batch_size': 8,
             'gradient_accumulation_steps': 4,
             'per_device_eval_batch_size': 8,
             'gradient_checkpointing': True,
-            'warmup_ratio': 0.1,
-            'learning_rate': 2e-5,
+            'warmup_ratio': 0.15,
+            'learning_rate': 5e-6,
             'lr_scheduler_type': "cosine",
             'optim': "adamw_torch_fused",
             'fp16': True,
             'batch_sampler': BatchSamplers.NO_DUPLICATES,
             'eval_strategy': "steps",
-            'save_steps': 500,
+            'save_steps': 50,
             'logging_steps': 10,
-            'save_total_limit': 3,
+            'save_total_limit': 5,
             'load_best_model_at_end': True,
-            'max_grad_norm': 1.0,
+            'max_grad_norm': 0.5,
             'metric_for_best_model': "eval_dim_768_cosine_ndcg@10",
         }
 
@@ -161,7 +163,7 @@ def main():
         # Load model and tokenizer
         logger.info("Setting up model and tokenizer...")
         new_tokens = read_json(config.vocab_path)
-        model, _ = setup_embedding_model(config.model_name, new_tokens=new_tokens)
+        model, _ = setup_embedding_model(config.model_name, new_tokens= None)
         model.to(device)
         
         # Create evaluators
@@ -179,9 +181,13 @@ def main():
         trainer.train()
         logger.info("Training completed successfully")
         
+        login(token="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", add_to_git_credential=True)
+        trainer.model.push_to_hub("miai-sample-embedding")
+        
     except Exception as e:
         logger.error(f"Training failed: {str(e)}")
         raise
 
 if __name__ == "__main__":
     main()
+    
