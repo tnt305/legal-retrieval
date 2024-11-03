@@ -1,0 +1,11 @@
+{"time":"2024-11-03T08:48:48.9942305Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-03T08:48:48.994260515Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241103_084848-rv1dwbt1/logs/debug-core.log"}
+{"time":"2024-11-03T08:48:54.039154561Z","level":"INFO","msg":"created new stream","id":"rv1dwbt1"}
+{"time":"2024-11-03T08:48:54.039276145Z","level":"INFO","msg":"stream: started","id":"rv1dwbt1"}
+{"time":"2024-11-03T08:48:54.039374523Z","level":"INFO","msg":"sender: started","stream_id":"rv1dwbt1"}
+{"time":"2024-11-03T08:48:54.039320139Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"rv1dwbt1"}}
+{"time":"2024-11-03T08:48:54.039419906Z","level":"INFO","msg":"handler: started","stream_id":{"value":"rv1dwbt1"}}
+{"time":"2024-11-03T08:48:54.451397223Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-03T08:49:03.358826518Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2024-11-03T08:50:46.10813714Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2024-11-03T08:50:46.115482712Z","level":"INFO","msg":"Pausing system monitor"}

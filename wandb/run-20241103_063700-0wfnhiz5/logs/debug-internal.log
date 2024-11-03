@@ -1,0 +1,11 @@
+{"time":"2024-11-03T06:37:00.589437715Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-03T06:37:00.589472785Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241103_063700-0wfnhiz5/logs/debug-core.log"}
+{"time":"2024-11-03T06:37:05.631138078Z","level":"INFO","msg":"created new stream","id":"0wfnhiz5"}
+{"time":"2024-11-03T06:37:05.631203968Z","level":"INFO","msg":"stream: started","id":"0wfnhiz5"}
+{"time":"2024-11-03T06:37:05.631298025Z","level":"INFO","msg":"sender: started","stream_id":"0wfnhiz5"}
+{"time":"2024-11-03T06:37:05.631252581Z","level":"INFO","msg":"handler: started","stream_id":{"value":"0wfnhiz5"}}
+{"time":"2024-11-03T06:37:05.631320295Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"0wfnhiz5"}}
+{"time":"2024-11-03T06:37:06.120784872Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-03T07:37:10.921278121Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2024-11-03T07:42:28.710215652Z","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/thiendc3005/sentence-transformers/0wfnhiz5/file_stream"}
+{"time":"2024-11-03T08:20:08.661430662Z","level":"INFO","msg":"Pausing system monitor"}
