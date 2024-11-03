@@ -1,7 +1,7 @@
 import pickle
 import wandb
 import random
-import datasets from Dataset
+from datasets import Dataset
 from tqdm import tqdm
 from retrieval.dense.settings import args
 from retrieval.dense.utils import evaluate, prepare_training_dataset
