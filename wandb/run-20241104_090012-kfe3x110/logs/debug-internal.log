@@ -1,0 +1,9 @@
+{"time":"2024-11-04T09:00:12.595669107Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-04T09:00:12.595711194Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241104_090012-kfe3x110/logs/debug-core.log"}
+{"time":"2024-11-04T09:00:17.635875405Z","level":"INFO","msg":"created new stream","id":"kfe3x110"}
+{"time":"2024-11-04T09:00:17.635963768Z","level":"INFO","msg":"stream: started","id":"kfe3x110"}
+{"time":"2024-11-04T09:00:17.636072862Z","level":"INFO","msg":"sender: started","stream_id":"kfe3x110"}
+{"time":"2024-11-04T09:00:17.636012085Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"kfe3x110"}}
+{"time":"2024-11-04T09:00:17.636056682Z","level":"INFO","msg":"handler: started","stream_id":{"value":"kfe3x110"}}
+{"time":"2024-11-04T09:00:18.046434742Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-04T09:06:32.350692245Z","level":"INFO","msg":"Pausing system monitor"}

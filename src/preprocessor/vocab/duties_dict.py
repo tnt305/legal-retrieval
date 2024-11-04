@@ -1,5 +1,11 @@
 from __future__ import unicode_literals
-from src.preprocessor.utils.sent_level import remove_punc_v2
+import string
+def punc_remover(text):
+    for punc in string.punctuation:
+        text = text.replace(punc, ' ')
+        text = text.replace('  ', ' ')
+    return text
+
 DUTIES = {
     "Mặt trận Tổ quốc",
     "Ủy ban nhân dân",
@@ -128,7 +134,7 @@ DUTIES = {
 
 
 # DUTIES = {item: item.replace("-", "").replace(" ", "_") for item in DUTIES}
-DUTIES = {remove_punc_v2(item) for item in DUTIES}
+DUTIES = {punc_remover(item) for item in DUTIES}
 DUTIES = {item.replace("-", "") for item in DUTIES}
 DUTIES = {item.replace("  ", " ") for item in DUTIES}
 DUTIES = {item: item.replace(" ", "_") for item in DUTIES}

@@ -22,7 +22,7 @@ class TextPreprocessing(BaseTextPreprocessor):
                  stop_words: dict = None, 
                  duty_term: dict = None,
                  special_term: dict = None):
-        super.__init__()
+        super().__init__()
         self.legal_term = LEGAL_DICT if legal_term is None else legal_term
         self.stop_words = STOP_WORDS if stop_words is None else stop_words 
         self.duties = DUTIES if duty_term is None else duty_term
@@ -177,7 +177,7 @@ class TextPreprocessing(BaseTextPreprocessor):
 
     def _stopword_remover(self, paragraph: str) -> str:
         """Remove stopwords from text."""
-        return " ".join([word for word in paragraph.split() if word not in self.stop_words]).strip()
+        return " ".join([word for word in paragraph.split() if word.lower() not in self.stop_words]).strip()
 
     def preprocess_text(self,
                        paragraph: str,
@@ -200,27 +200,43 @@ class TextPreprocessing(BaseTextPreprocessor):
             Preprocessed text string
         """
         if url_remover:
+            # print(paragraph)
+            # print("================")
             paragraph = self._url_remover(paragraph)
         
         if punctuation_remover:
+            # print("remove_punctuation", paragraph)
+            # print("================")
             paragraph = self._punctuation_remover(paragraph)
 
         if line_breaker_remover:
+            # print("line_breaker",paragraph)
+            # print("================")
             paragraph = self._line_breaker_remover(paragraph)
 
         if lowercase_standardizer:
+            # print("lower_case", paragraph)
+            # print("================")
             paragraph = self._lowercase_standardizer(paragraph)
 
         if white_space_remover:
+            # print("white_space",paragraph)
+            # print("================")
             paragraph = self._white_space_remover(paragraph)
             
         if law_text_recognizer:
+            # print("law",paragraph)
+            # print("================")
             paragraph = self._legal_text_tokenizer(paragraph)
             
         if text_tokenizer:
+            # print("text" ,paragraph)
+            # print("================")
             paragraph = self._text_tokenizer(paragraph)
             
         if stop_word_remover:
+            # print("stopwords",paragraph)
+            # print("================")
             paragraph = self._stopword_remover(paragraph)
         
         return paragraph

@@ -1,0 +1,31 @@
+{
+  "os":  "Linux-5.4.0-198-generic-x86_64-with-glibc2.31",
+  "python":  "3.10.15",
+  "startedAt":  "2024-11-04T09:00:12.590928Z",
+  "program":  "/home/thiendc/projects/legal_retrieval/semantic_search.ipynb",
+  "git":  {
+    "remote":  "https://github.com/tnt305/legal-retrieval.git",
+    "commit":  "9772a086a2a680bd8c7de35bbd13ac1f6f5d93bd"
+  },
+  "email":  "thiendc3005@gmail.com",
+  "root":  "/home/thiendc/projects/legal_retrieval",
+  "host":  "server114",
+  "username":  "thiendc",
+  "executable":  "/home/thiendc/projects/.thienenv/bin/python",
+  "codePathLocal":  "semantic_search.ipynb",
+  "cpu_count":  24,
+  "cpu_count_logical":  48,
+  "disk":  {
+    "/":  {
+      "total":  "463882223616",
+      "used":  "81552531456"
+    }
+  },
+  "memory":  {
+    "total":  "135038971904"
+  },
+  "cpu":  {
+    "count":  24,
+    "countLogical":  48
+  }
+}

@@ -260,13 +260,12 @@ class PostPreprocessing(BaseTextPostPreprocessor):
         if isinstance(texts, tuple):
             for i in range(len(texts)):
                 txt = self.handle_rules_v2(texts[i])
-                txt = self.normalize_text(txt)
-                
+                txt = self.normalize_text(txt)  
                 final_text.append(txt)
         else:
             texts = self.normalize_text(texts)
             final_text.append(texts)
-        return final_text
+        return " ".join(final_text)
     
     def post_preprocess(self, 
                         docs: Union[List[str], pd.Series, str]):
