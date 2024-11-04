@@ -1,8 +1,0 @@
-{"time":"2024-11-03T08:52:00.367065673Z","level":"INFO","msg":"using version","core version":"0.18.5"}
-{"time":"2024-11-03T08:52:00.367095866Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241103_085200-wfnq1epp/logs/debug-core.log"}
-{"time":"2024-11-03T08:52:05.407136721Z","level":"INFO","msg":"created new stream","id":"wfnq1epp"}
-{"time":"2024-11-03T08:52:05.407200355Z","level":"INFO","msg":"stream: started","id":"wfnq1epp"}
-{"time":"2024-11-03T08:52:05.407358959Z","level":"INFO","msg":"sender: started","stream_id":"wfnq1epp"}
-{"time":"2024-11-03T08:52:05.407328772Z","level":"INFO","msg":"handler: started","stream_id":{"value":"wfnq1epp"}}
-{"time":"2024-11-03T08:52:05.407278772Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"wfnq1epp"}}
-{"time":"2024-11-03T08:52:05.84195414Z","level":"INFO","msg":"Starting system monitor"}

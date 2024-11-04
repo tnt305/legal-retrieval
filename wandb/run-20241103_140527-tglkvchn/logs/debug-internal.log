@@ -1,9 +1,0 @@
-{"time":"2024-11-03T14:05:27.215474365Z","level":"INFO","msg":"using version","core version":"0.18.5"}
-{"time":"2024-11-03T14:05:27.215514758Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241103_140527-tglkvchn/logs/debug-core.log"}
-{"time":"2024-11-03T14:05:32.254083705Z","level":"INFO","msg":"created new stream","id":"tglkvchn"}
-{"time":"2024-11-03T14:05:32.254133653Z","level":"INFO","msg":"stream: started","id":"tglkvchn"}
-{"time":"2024-11-03T14:05:32.255180914Z","level":"INFO","msg":"sender: started","stream_id":"tglkvchn"}
-{"time":"2024-11-03T14:05:32.254220456Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"tglkvchn"}}
-{"time":"2024-11-03T14:05:32.255130581Z","level":"INFO","msg":"handler: started","stream_id":{"value":"tglkvchn"}}
-{"time":"2024-11-03T14:05:32.688798914Z","level":"INFO","msg":"Starting system monitor"}
-{"time":"2024-11-03T14:26:32.958124569Z","level":"INFO","msg":"Pausing system monitor"}

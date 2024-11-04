@@ -1,9 +1,0 @@
-{"time":"2024-11-04T07:53:32.727826163Z","level":"INFO","msg":"using version","core version":"0.18.5"}
-{"time":"2024-11-04T07:53:32.727855443Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241104_075332-t15fcpsg/logs/debug-core.log"}
-{"time":"2024-11-04T07:53:37.76976548Z","level":"INFO","msg":"created new stream","id":"t15fcpsg"}
-{"time":"2024-11-04T07:53:37.769851963Z","level":"INFO","msg":"stream: started","id":"t15fcpsg"}
-{"time":"2024-11-04T07:53:37.769957643Z","level":"INFO","msg":"sender: started","stream_id":"t15fcpsg"}
-{"time":"2024-11-04T07:53:37.769979927Z","level":"INFO","msg":"handler: started","stream_id":{"value":"t15fcpsg"}}
-{"time":"2024-11-04T07:53:37.769928396Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"t15fcpsg"}}
-{"time":"2024-11-04T07:53:38.22739076Z","level":"INFO","msg":"Starting system monitor"}
-{"time":"2024-11-04T08:57:17.464984354Z","level":"INFO","msg":"Pausing system monitor"}
