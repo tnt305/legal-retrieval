@@ -1,0 +1,9 @@
+{"time":"2024-11-05T09:26:41.728445574Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-05T09:26:41.728481057Z","level":"INFO","msg":"created symlink","path":"/home/thiendc/projects/legal_retrieval/wandb/run-20241105_092641-3emr54xs/logs/debug-core.log"}
+{"time":"2024-11-05T09:26:46.772377698Z","level":"INFO","msg":"created new stream","id":"3emr54xs"}
+{"time":"2024-11-05T09:26:46.772441196Z","level":"INFO","msg":"stream: started","id":"3emr54xs"}
+{"time":"2024-11-05T09:26:46.772581971Z","level":"INFO","msg":"sender: started","stream_id":"3emr54xs"}
+{"time":"2024-11-05T09:26:46.772527138Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"3emr54xs"}}
+{"time":"2024-11-05T09:26:46.772536148Z","level":"INFO","msg":"handler: started","stream_id":{"value":"3emr54xs"}}
+{"time":"2024-11-05T09:26:47.191283249Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-05T09:27:06.219518495Z","level":"INFO","msg":"Pausing system monitor"}

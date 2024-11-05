@@ -2,6 +2,7 @@
 *.csv
 legal_finetuning/
 legal_finetuning_v2/
+legal_finetuning_v3/
 # Ignore all Excel files
 *.xlsx
 *.pkl
