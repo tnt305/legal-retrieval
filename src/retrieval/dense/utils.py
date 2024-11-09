@@ -1,9 +1,21 @@
 from tqdm import tqdm
+from datasets import Dataset
 from sentence_transformers.util import cos_sim as consine
 from sentence_transformers.evaluation import (
     InformationRetrievalEvaluator,
     SequentialEvaluator,
 )
+
+from huggingface_hub import login, snapshot_download
+
+def download_hf_models(repo_id: str, model_name: str):
+    try:
+        snapshot_download(repo_id= repo_id, local_dir = f'./src/retrieval/dense/embeddings/models/{model_name}')
+    except:
+        print("Private repository - logining to Hugging Face Hub needed")
+        login(token="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", add_to_git_credential=True)
+        snapshot_download(repo_id= repo_id, local_dir = f'./src/retrieval/dense/embeddings/models/{model_name}')    
+    
 
 def evaluate(queries: dict, corpus: dict, relevant_docs: dict):
     matryoshka_dimensions = [768, 512, 256, 128, 64] # Important: large to small

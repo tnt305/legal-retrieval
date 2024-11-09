@@ -148,12 +148,15 @@ class PostPreprocessing(BaseTextPostPreprocessor):
             Processed text with xa0 removed and stopwords handled
         """
         new_text = text.replace('xa0', '')
-        new_text = text.replace('xAA0', '')
-        words = text.split("_")
+        new_text = new_text.replace('xAA0', '')
+        new_text = new_text.replace('xA0', '')
+        
+        words = new_text.split("_")
         
         if words[-1].lower() in list(STOP_WORDS):
             new_text = "_".join(words[:-1])
         
+        words = new_text.split("_")
         if len(words) > 2 and len(words) % 2 == 1 and 'trừ' in words[-1]:
             new_text = "_".join(words[:-1])
             

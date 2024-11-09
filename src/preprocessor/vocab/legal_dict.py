@@ -70,6 +70,7 @@ LEGAL_DICT = {
     "bảo hiểm nhân thọ": "bảo_hiểm_nhân_thọ",
     "bảo hiểm hưu trí": "bảo_hiểm_hưu_trí",
     "bảo hiểm tử kỳ": "bảo_hiểm_tử_kỳ",
+    "bảo hiểm vi mô": "bảo_hiểm_vi_mô",
     "tội phạm ma túy": "tội_phạm_ma_túy",
     "bảo lãnh ngân hàng": "bảo_lãnh_ngân_hàng",
     "báo cáo tài chính": "báo_cáo_tài_chính",
@@ -107,7 +108,9 @@ LEGAL_DICT = {
     "hạn mức": "hạn_mức",
     "hạn định": "hạn_định",
     "gia hạn": "gia_hạn",
-    "hết hạn": "hết_hạn"
-    
+    "hết hạn": "hết_hạn",
+    "phi chính phủ": "phi_chính_phủ",
+    "phi lợi nhuận": "phi_lợi_nhuận",
+    'bình đẳng giới': 'bình_đẳng_giới',
 }
 

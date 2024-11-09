@@ -45,6 +45,7 @@ DUTIES = {
     "Ban Hậu cầu",
     "Phòng Đào tạo",
     "Bộ trưởng Bộ Quốc phòng",
+    "Bộ Quốc Phòng",
     "Bộ Tài chính",
     "Bộ Nông nghiệp và Phát triển nông thôn",
     "Bộ Ngoại giao",
@@ -78,7 +79,7 @@ DUTIES = {
     "Bộ Công tác đại biểu",
     "Phó thủ tướng",
     "Hội đồng quản trị",
-    "Chủ tịch hội đồng quản trị"
+    "Chủ tịch hội đồng quản trị",
     "Chủ tịch HĐND Thành phố",
     "Chủ tịch HĐND Tỉnh",
     "Chủ tịch HĐND Huyện",
