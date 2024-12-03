@@ -1,4 +1,4 @@
-# Legal Document Retrieval Solution
+# Legal Document Retrieval Solution for SOICT
 
 ## Overview
 
@@ -32,17 +32,9 @@ This solution provides a robust and efficient system for **Legal Document Retrie
 ### 1. Data Preprocessing
 
 - **Legal Term Normalization**:
-  - Maps legal synonyms (e.g., "plaintiff" → "complainant").
-  - Expands abbreviations (e.g., "UCC" → "Uniform Commercial Code").
-
 - **Tokenization**:
-  - Uses specialized tokenizers to retain the structure of legal language.
-
 - **Stopword Handling**:
-  - Includes domain-specific stopword lists to filter irrelevant terms.
-
 - **Named Entity Recognition (NER)**:
-  - Extracts legal entities like dates, case numbers, and party names for indexing.
 
 ---
 
@@ -55,7 +47,7 @@ This solution provides a robust and efficient system for **Legal Document Retrie
     - **Documents**: Relevant statutes, precedents, or legal provisions.
 
 - **Training Objective**:
-  - Minimizes ranking loss or contrastive loss to align query-document embeddings.
+  - Minimizes ranking loss to align query-document embeddings.
 
 - **Evaluation Metrics**:
   - Mean Reciprocal Rank (MRR).
@@ -66,7 +58,7 @@ This solution provides a robust and efficient system for **Legal Document Retrie
 
 ### 3. Search Pipeline
 
-- **BM25 for Initial Retrieval**:
+- **BM25s for Initial Retrieval**:
   - Quickly identifies a candidate set of documents using lexical similarity.
   
 - **Semantic Reranking**:
@@ -77,9 +69,13 @@ This solution provides a robust and efficient system for **Legal Document Retrie
 
 ---
 
-## Installation
+## 4. Notes
+Since it is kinda time-consuming for me to solo-coding this, while current time is peak season for my company's projects. I decided to cancel the competition, but hopefully you guys can see something useful from the pipeline i created. 
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/legal-document-retrieval.git
-   cd legal-document-retrieval
+Here i added bm25s which convinced to be faster than the origin bm25, i did train the SupSimCSE-VoVanPhuc for like 2 or 3 days but it turned out, they did not allow to use. However, you can do ensemble with sbert and alibaba sentence transformers with adding in vocabs. 
+
+I dont try to use the Generation part in RAG for the fact that i dont have a good feeling that it is a good option for me.
+
+More things that can be further added that using vllm to create a second chance question for those exist more than one each query. I also highlighted the intention of the question so that the answer can be more specific during the search.
+
+And yeap, you can give me a like or stars iusecase. Even raising an issue, if any in my code seemed confusing. Thank you boys <3 
